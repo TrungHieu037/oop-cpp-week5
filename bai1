@@ -89,4 +89,12 @@ int main() {
     }
     if (!hasFail) cout << "All students pass!" << endl;
 
+    // 8. Compare Adjacent Students
+    cout << "\n=== Bài 8 ===" << endl;
+    for (int i = 1; i < n; i++) {
+        if (scores[i] > scores[i - 1]) {
+            cout << "Student " << (i + 1) << " improved compared to Student " << i << endl;
+        }
+    }
+
 
