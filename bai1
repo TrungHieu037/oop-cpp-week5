@@ -97,4 +97,17 @@ int main() {
         }
     }
 
+    // 9. Find Longest Pass Streak (>= 5.0)
+    cout << "\n=== Bài 9 ===" << endl;
+    int maxStreak = 0, currentStreak = 0;
+    for (int i = 0; i < n; i++) {
+        if (scores[i] >= 5.0) {
+            currentStreak++;
+            if (currentStreak > maxStreak) maxStreak = currentStreak;
+        } else {
+            currentStreak = 0;
+        }
+    }
+    cout << "Longest pass streak: " << maxStreak << " students" << endl;
+
 
