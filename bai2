@@ -67,3 +67,22 @@ int main() {
              << setw(8) << flowers[i].quantity
              << setw(15) << flowers[i].type << endl;
     }
+
+    // 3. Find most expensive, cheapest, total quantity, and average price
+    int maxIdx = 0, minIdx = 0;
+    int totalQty = 0;
+    double totalPrice = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (flowers[i].price > flowers[maxIdx].price) maxIdx = i;
+        if (flowers[i].price < flowers[minIdx].price) minIdx = i;
+        totalQty += flowers[i].quantity;
+        totalPrice += flowers[i].price;
+    }
+    double avgPrice = totalPrice / n;
+
+    cout << "\n----- ANALYSIS -----" << endl;
+    cout << "Most expensive flower : " << flowers[maxIdx].name << " (" << flowers[maxIdx].price << ")" << endl;
+    cout << "Cheapest flower       : " << flowers[minIdx].name << " (" << flowers[minIdx].price << ")" << endl;
+    cout << "Total quantity        : " << totalQty << endl;
+    cout << "Average price         : " << fixed << setprecision(1) << avgPrice << endl;
