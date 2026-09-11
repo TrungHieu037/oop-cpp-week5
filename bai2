@@ -86,3 +86,24 @@ int main() {
     cout << "Cheapest flower       : " << flowers[minIdx].name << " (" << flowers[minIdx].price << ")" << endl;
     cout << "Total quantity        : " << totalQty << endl;
     cout << "Average price         : " << fixed << setprecision(1) << avgPrice << endl;
+
+    // 4. Count how many flowers belong to each type
+    cout << "\n----- COUNT BY TYPE -----" << endl;
+    for (int i = 0; i < n; i++) {
+        bool alreadyCounted = false;
+        for (int j = 0; j < i; j++) {
+            if (toLower(flowers[i].type) == toLower(flowers[j].type)) {
+                alreadyCounted = true;
+                break;
+            }
+        }
+        if (!alreadyCounted) {
+            int count = 0;
+            for (int k = 0; k < n; k++) {
+                if (toLower(flowers[k].type) == toLower(flowers[i].type)) {
+                    count++;
+                }
+            }
+            cout << left << setw(10) << flowers[i].type << ": " << count << endl;
+        }
+    }
