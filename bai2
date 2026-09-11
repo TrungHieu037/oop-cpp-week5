@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <algorithm>
+
+using namespace std;
+
+// Khai báo cấu trúc Flower
+struct Flower {
+    string name;
+    double price;
+    int quantity;
+    string type;
+};
+
+// Hàm hỗ trợ chuyển chuỗi thành chữ thường để so sánh không phân biệt hoa/thường
+string toLower(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return str;
+}
+
+int main() {
+    Flower flowers[20];
+    int n;
+
+    // Nhập số lượng hoa (1 <= N <= 20)
+    do {
+        cout << "How many flowers? (1-20): ";
+        cin >> n;
+    } while (n < 1 || n > 20);
+
+    // 1. Input information for N flowers
+    for (int i = 0; i < n; i++) {
+        cout << "\nFlower " << (i + 1) << ":" << endl;
+        cout << "  Name: ";
+        cin >> flowers[i].name;
+
+        // Validate price > 0
+        do {
+            cout << "  Price (> 0): ";
+            cin >> flowers[i].price;
+        } while (flowers[i].price <= 0);
+
+        // Validate quantity >= 0
+        do {
+            cout << "  Quantity (>= 0): ";
+            cin >> flowers[i].quantity;
+        } while (flowers[i].quantity < 0);
+
+        cout << "  Type: ";
+        cin >> flowers[i].type;
+    }
