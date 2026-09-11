@@ -37,3 +37,21 @@ int main() {
     for (int i = 0; i < n; i++) {
         if (scores[i] > avg) cout << "Student " << (i + 1) << ": " << scores[i] << endl;
     }
+
+
+
+
+
+    // 4. Find Second Highest Score
+    cout << "\n=== Bài 4 ===" << endl;
+    double max1 = -1, max2 = -1;
+    for (int i = 0; i < n; i++) {
+        if (scores[i] > max1) {
+            max2 = max1;
+            max1 = scores[i];
+        } else if (scores[i] > max2 && scores[i] < max1) {
+            max2 = scores[i];
+        }
+    }
+    cout << "Highest score: " << max1 << endl;
+    cout << "Second highest score: " << max2 << endl;
