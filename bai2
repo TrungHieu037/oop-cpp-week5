@@ -107,3 +107,27 @@ int main() {
             cout << left << setw(10) << flowers[i].type << ": " << count << endl;
         }
     }
+
+
+    // 5. Search for a flower by name
+    string searchName;
+    cout << "\nEnter flower name to search: ";
+    cin >> searchName;
+
+    bool found = false;
+    for (int i = 0; i < n; i++) {
+        if (toLower(flowers[i].name) == toLower(searchName)) {
+            cout << "Found!" << endl;
+            cout << "Price: " << flowers[i].price << endl;
+            cout << "Quantity: " << flowers[i].quantity << endl;
+            cout << "Type: " << flowers[i].type << endl;
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        cout << "Flower not found!" << endl;
+    }
+
+    return 0;
+}
