@@ -55,3 +55,15 @@ int main() {
     }
     cout << "Highest score: " << max1 << endl;
     cout << "Second highest score: " << max2 << endl;
+
+
+
+    // 5. Search for a Score
+    cout << "\n=== Bài 5 ===" << endl;
+    double searchVal = 7.5;
+    cout << "Found at:" << endl;
+    for (int i = 0; i < n; i++) {
+        if (scores[i] == searchVal) cout << "Student " << (i + 1) << endl;
+    }
+
+
